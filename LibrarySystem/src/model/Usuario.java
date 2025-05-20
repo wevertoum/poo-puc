@@ -7,22 +7,22 @@ public class Usuario {
 
     private final String cpf;
     private final String nome;
-    private final List<Livro> livrosEmprestados;
+    private final List<ItemBiblioteca> itensEmprestados;
 
     public Usuario(String cpf, String nome) {
         this.cpf = cpf;
         this.nome = nome;
-        this.livrosEmprestados = new ArrayList<>();
+        this.itensEmprestados = new ArrayList<>();
     }
 
-    public void pegarEmprestado(Livro livro) {
-        livro.emprestar();
-        livrosEmprestados.add(livro);
+    public void pegarEmprestado(ItemBiblioteca item) {
+        item.emprestar();
+        itensEmprestados.add(item);
     }
 
-    public void devolverLivro(Livro livro) {
-        livro.devolver();
-        livrosEmprestados.remove(livro);
+    public void devolverItem(ItemBiblioteca item) {
+        item.devolver();
+        itensEmprestados.remove(item);
     }
 
     public String getCpf() {
@@ -33,8 +33,8 @@ public class Usuario {
         return nome;
     }
 
-    public List<Livro> getLivrosEmprestados() {
-        return livrosEmprestados;
+    public List<ItemBiblioteca> getItensEmprestados() {
+        return itensEmprestados;
     }
 
     @Override

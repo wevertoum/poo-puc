@@ -1,33 +1,14 @@
 package model;
 
-public class Livro {
+public class Livro extends ItemBiblioteca {
 
-    private final int id;
     private final String titulo;
     private final String autor;
-    private boolean disponivel;
 
     public Livro(int id, String titulo, String autor) {
-        this.id = id;
+        super(id);
         this.titulo = titulo;
         this.autor = autor;
-        this.disponivel = true;
-    }
-
-    public void emprestar() {
-        if (disponivel) {
-            disponivel = false;
-        } else {
-            throw new IllegalStateException("Livro já emprestado.");
-        }
-    }
-
-    public void devolver() {
-        disponivel = true;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getTitulo() {
@@ -38,12 +19,8 @@ public class Livro {
         return autor;
     }
 
-    public boolean isDisponivel() {
-        return disponivel;
-    }
-
     @Override
     public String toString() {
-        return "Livro [ID=" + id + ", Título=" + titulo + ", Autor=" + autor + ", Disponível=" + disponivel + "]";
+        return "Livro [ID=" + getId() + ", Título=" + titulo + ", Autor=" + autor + ", Disponível=" + isDisponivel() + "]";
     }
 }
